@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+      type="text/javascript"
+      charset="UTF-8"
+      data-domain-script="87d60776-b0e9-4bb1-8c07-df554c861f17-test"
+    ></script>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body,
+      h1 {
+        font-family: 'Raleway', sans-serif;
+      }
+      body,
+      html {
+        height: 100%;
+      }
+      .bgimg{
+        background-image: url('https://images.unsplash.com/photo-1614332287897-cdc485fa562d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+      }
+
+      /* div containing all buttons float to the right */
+      #onetrust-banner-sdk #onetrust-button-group {
+        float: right;
+      }
+      /* button colour */
+      #onetrust-banner-sdk #ot-confirm-my-choices {
+        background-color: #1371c3;
+        border-color: #1371c3;
+        color: #fff;
+      }
+      /* button size/style */
+      #onetrust-banner-sdk #ot-confirm-my-choices {
+        margin-right: 1em;
+        min-width: 125px;
+        height: auto;
+        white-space: normal;
+        word-break: break-all;
+        word-wrap: break-word;
+        padding: 12px 10px;
+        line-height: 1.2;
+        font-size: 0.813em;
+        font-weight: 600;
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <title>Coming Soon</title>
+  </head>
+  <body>
+    <div
+      class="bgimg"
+    ></div>
+
+    <script type="text/javascript">
+      function OptanonWrapper() {
+        if (!document.getElementById('ot-confirm-my-choices')) {
+          // (!) if button doesn't exist then create it
+          var newNode = document.createElement('BUTTON'); // Create a <button> element
+          newNode.setAttribute('aria-label', 'Accept Suggested Cookies'); // setting attributes for new button
+          newNode.setAttribute('id', 'ot-confirm-my-choices'); // setting the id and id name
+          newNode.setAttribute(
+            // setting the class and two class names
+            'class',
+            'save-preference-btn-handler onetrust-close-btn-handler'
+          );
+
+          newNode.setAttribute('tabindex', 0); // tab index position for accessibility keyboard
+          newNode.innerHTML = 'Accept Suggested Cookies'; // inserting Text for button in the HTML so that it can be seen
+          newNode.setAttribute('onclick', 'OneTrust.Close()'); // Attribute for a method/function that runs event handler that closes the banner after selection
+          var referenceNode = document.querySelector(
+            '#onetrust-pc-btn-handler'
+          ); // getting the "Cookie Settings" button so we can insert new button next to it as a sibling
+          referenceNode.parentNode.insertBefore(
+            // Insert new button in between
+
+            newNode, // Our Button "Accept Suggested Cookies"
+            referenceNode.nextSibling // "Accept All Cookies" button before it insert new button created
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
